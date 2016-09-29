@@ -75,6 +75,15 @@ public class UsuarioCommand implements Command {
                 
                 info.setUsuario(user);
                 
+                usuarioDAO.insert(user);
+                info.setIdUserinfo(user.getIdUser());
+                user.setUserinfo(info);
+                
+                usuarioDAO.update(user);
+                
+                this.request.getSession().setAttribute("usuario", user);
+                this.responsePage = "index.jsp";
+                
                 
                 break;
 

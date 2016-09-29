@@ -88,7 +88,7 @@ public class Controller extends HttpServlet {
             u.setUserinfo(info);
             usuarioDAO.update(u);
             
-           
+          
             out.println(u);
             
             out.println("</body>");
