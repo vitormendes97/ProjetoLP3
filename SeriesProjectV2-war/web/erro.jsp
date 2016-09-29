@@ -4,6 +4,7 @@
     Author     : leo_f
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -32,7 +33,8 @@
             </div>
             <div class="col s4">
                 <div class="card-panel blue-grey">
-                    <span class="black-text "><h1>  Erro 404<br/>Página Não Encontrada</h1>  </span>
+                    <span class="black-text "><h1>  Erro 404<br/>
+                            <c:out value="{$error}"></c:out></h1>  </span>
                 </div>
             </div>
         </div>

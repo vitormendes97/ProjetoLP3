@@ -44,7 +44,8 @@ public class FrontController extends HttpServlet {
                 Command command = (Command) Class.forName("com.br.seriesproject.command."+commandStr+"Command").newInstance();
                 command.init(request, response);
                 command.execute();
-                response.sendRedirect(command.getResponsePage());
+//                response.sendRedirect(command.getResponsePage());
+                request.getRequestDispatcher(command.getResponsePage()).forward(request, response);
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
             } catch (InstantiationException ex) {

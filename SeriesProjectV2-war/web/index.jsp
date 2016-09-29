@@ -54,7 +54,7 @@
                     </button>
 
                     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right">
-                        <span class="mdl-layout-title" style="color:black;">Entrar</span>
+                        <span class="mdl-layout-title" style="color:black;"><a href="FrontController?command=Usuario.Logout">Logout</a></span>
                     </ul>
 
                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable 
