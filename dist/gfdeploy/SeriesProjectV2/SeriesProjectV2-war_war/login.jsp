@@ -24,13 +24,14 @@
     <body>
 
 
-        <form action="FrontController" method="POST">
-            <input type="hidden" value="Usuario.Login" name="command">
+       
+           
         <div class="row">
             <div class="card-panel grey lighten-2">
                 <div class="row">
 
-                    <form class="col s12">
+                    <form class="col s12"  action="FrontController" method="POST">
+                         <input type="hidden" value="Usuario.Login" name="command">
                         <div class="row ">
                             <div class="input-field col s12">
                                 <input id="first_name" type="text" class="validate" name="username">
