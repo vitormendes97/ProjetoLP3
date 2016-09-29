@@ -10,10 +10,12 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <link href="public/js/custom.css" rel="stylesheet" type="text/css"/>
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!--Import materialize.css-->
         <link href="public/css/materialize.css" rel="stylesheet" type="text/css" media="screen,projection"/>
         <!--Let browser know website is optimized for mobile-->
+        <script src="public/js/custom.js" type="text/javascript"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
 
@@ -64,7 +66,7 @@
                                 <label for="password">Password</label>
                             </div>
                             <div class="input-field col s6">
-                                <input id="password" type="password" name="password2" class="validate" required="required">
+                                <input id="password2" type="password" name="password2" class="validate" required="required">
                                 <label for="password">Confirm Password</label>
                             </div>
 
@@ -93,7 +95,7 @@
                         <div class="row">
                             <div class="input-field col s12">
 
-                                <input type="submit" value="Salvar" class="waves-effect waves-light btn" style="left:34%;" >
+                                <input type="submit" onclick="checkPassword()" value="Salvar" class="waves-effect waves-light btn" style="left:34%;" >
                             </div>
                         </div>
                     </form>

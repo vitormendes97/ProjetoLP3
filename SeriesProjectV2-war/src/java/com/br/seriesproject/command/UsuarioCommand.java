@@ -44,6 +44,7 @@ public class UsuarioCommand implements Command {
                 // Para usuário
                 String username = request.getParameter("username");
                 String password = request.getParameter("password");
+                String confirm = request.getParameter("password2");
 
                 // Para userinfo
                 String name = request.getParameter("nome");
@@ -61,7 +62,24 @@ public class UsuarioCommand implements Command {
                 Logger.getLogger(UsuarioCommand.class.getName()).log(Level.SEVERE, null, ex);
             }
             
-            
+                if(usuarioDAO.readByUsername(username) != null){
+                
+                    if(usuarioDAO.readByUsername(username).getUserinfo().getEmail().equalsIgnoreCase(email)){
+                         this.request.getSession().setAttribute("error","Email já esta sendo usado");
+                    }
+                    else{
+                    this.request.getSession().setAttribute("error", "Já existe um usuário com este usuário");
+                    }
+                    this.responsePage = "erro.jsp";
+                    break;
+                }
+                else if(!password.equals(name)){
+                    this.request.getSession().setAttribute("error","Senhas não conferem");
+                    this.responsePage = "erro.jsp";
+                    break;
+                }
+                
+                else{
                 Userinfo info = new Userinfo();
                 info.setNome(name);
                 info.setGenero(gender);
@@ -84,7 +102,7 @@ public class UsuarioCommand implements Command {
                 this.request.getSession().setAttribute("usuario", user);
                 this.responsePage = "index.jsp";
                 
-                
+                }
                 break;
 
         }

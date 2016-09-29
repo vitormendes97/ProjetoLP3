@@ -11,8 +11,10 @@ import javax.annotation.PreDestroy;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateful;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceContextType;
+import javax.persistence.Query;
 
 @LocalBean
 @Stateful
@@ -52,6 +54,19 @@ public void destruct()
     @Override
     public Usuario readById(long id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    public Usuario readByUsername(String username){
+        Query query = em.createNamedQuery("Usuario.findByUsername").setParameter("username",username);
+        Object object = null;
+               
+        try{
+        object = query.getSingleResult();
+        return (Usuario)object;
+        }
+        catch(NoResultException ex){
+            return null;
+        }
     }
     
 }
