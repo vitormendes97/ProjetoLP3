@@ -104,7 +104,7 @@ public class UsuarioCommand implements Command {
 
             case "Logout":
                 this.request.getSession().invalidate();
-                this.responsePage = "login.jsp";
+                this.responsePage = "index.jsp";
                 
                 break;
                 
