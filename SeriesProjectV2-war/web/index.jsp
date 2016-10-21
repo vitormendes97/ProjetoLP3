@@ -30,7 +30,9 @@
 
         <script src="public/js/materialize.js" type="text/javascript"></script>
 
-
+          <c:if test="${u == null}">
+            <c:redirect url="login.jsp"></c:redirect>
+         </c:if>
 
         <ul id="dropdown1" class="dropdown-content">
             <li id="settings"><a class="waves-effect waves-light modal-trigger"  href="#modal2" >settings</a></li>
