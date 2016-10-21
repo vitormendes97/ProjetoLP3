@@ -6,34 +6,44 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
 <html>
     <head>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+        <link href="public/css/custom.css" rel="stylesheet" type="text/css"/>
+        <!-- Compiled and minified JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+
         <!--Import materialize.css-->
-        <link href="public/css/materialize.css" rel="stylesheet" type="text/css" media="screen,projection"/>
+        <!-- <link href="public/css/materialize.css" rel="stylesheet" type="text/css" media="screen,projection"/> -->
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <script src="public/js/custom.js" type="text/javascript"></script>
     </head>
 
     <body>
         <!--Import jQuery before materialize.js-->
-        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <c:if test="${u == null}">
+            <c:redirect url="login.jsp"></c:redirect>
+         </c:if>
 
         <script src="public/js/materialize.js" type="text/javascript"></script>
 
-
+          
 
         <ul id="dropdown1" class="dropdown-content">
-            <li><a href="#!">one</a></li>
-            <li><a href="#!">two</a></li>
+            <li id="settings"><a class="waves-effect waves-light modal-trigger"  href="#modal2" >settings</a></li>
             <li class="divider"></li>
-            <li><a href="#!">three</a></li>
+            <li><a href="FrontController?command=Usuario.Logout">Logout</a></li>
         </ul>
+
         <nav>
             <div class="nav-wrapper">
-                <a href="#!" class="brand-logo">Logo</a>
+                <a href="index.jsp" class="brand-logo">Series Project 1.1</a>
                 <ul class="right hide-on-med-and-down">
                     <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
                 </ul>
@@ -55,20 +65,69 @@
 
 
 
+        <div id="modal2" class="modal modal-fixed-footer">
+            <div class="modal-content">
 
-    </body>
-    <footer class="page-footer card-panel indigo darken-2">
-        <div class="container">
-            <div class="row">
-                <div class="col l4 offset-l2 s12">
-                    <h5 class="white-text">Links</h5>
-                    <ul>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                    </ul>
+                <div class="row">
+                    <div class="col s12">
+                        <ul class="tabs">
+                            <li class="tab col s3"><a href="#test1">Profile</a></li>
+                            <li class="tab col s3"><a class="active" href="#test2">Test 2</a></li>
+                            <li class="tab col s3 disabled"><a href="#test3">Disabled Tab</a></li>
+                            <li class="tab col s3"><a href="#test4">Test 4</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="row">
+                        
+                        <div class="row">
+                            <div class="col s6">
+                                <p>Bem vindo ${usuario.username} . Deseja Editar suas informações?  
+                                    <a id="btn-editar" onclick="toggleReadOnly()" class="waves-effect waves-light btn"><i class="material-icons left">mode_edit</i>Editar</a>
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div id="test1" class="col s6">
+                            <label for="Nome">Nome : </label>
+                        <input type="text" class="input-test" name="nome" id="nome" readonly="readonly">
+                        </div>
+                         <div id="test1" class="col s6">
+                            <label for="Email">Email : </label>
+                        <input type="email" class="input-test" name="email" id="email" readonly="readonly">
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col s6">
+                                 <label for="Celular">Celular : </label>
+                                  <input type="text" class="input-test" name="celular" id="celular" readonly="readonly">
+                            </div>
+                             <div class="col s6">
+                                 <label for="Data">Data de Nascimento : </label>
+                                 <input type="text" class="input-test" name="datanasc" id="datanasc" readonly="readonly">
+                            </div>
+                            
+                        </div>
+                        
+                            <div class="row">
+                            <div class="col s6">
+                                 <label for="Usuario">Usuario : </label>
+                                  <input type="text" class="input-test" name="username" readonly="readonly">
+                            </div>
+                             <div class="col s6">
+                                 <label for="Data">Senha : </label>
+                                 <input type="password" value="teste" id="senha" class="input-test" name="password" readonly="readonly">
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
+            </div>
         </div>
-    </footer>
+
+    </body>
 </html>

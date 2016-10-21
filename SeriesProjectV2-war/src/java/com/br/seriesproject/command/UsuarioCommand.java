@@ -97,7 +97,7 @@ public class UsuarioCommand implements Command {
                     usuarioDAO.update(user);
 
                     this.request.getSession().setAttribute("usuario", user);
-                    this.responsePage = "index.jsp";
+                    this.responsePage = "entrada.jsp";
 
                 }
                 break;
@@ -121,7 +121,7 @@ public class UsuarioCommand implements Command {
                 }
                 else if(u.getUsername().equals(usuario) && u.getPassword().equals(senha)){
                     this.request.getSession().setAttribute("usuario", u);
-                    this.responsePage = "index.jsp";
+                    this.responsePage = "entrada.jsp";
                     break;
                 }
                 else if(!u.getUsername().equals(usuario) || !u.getPassword().equals(senha)){
