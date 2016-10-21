@@ -45,22 +45,13 @@
             <div class="nav-wrapper">
                 <a href="index.jsp" class="brand-logo">Series Project 1.1</a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
+                    <li><a href="#!">Filmes</a></li>
+                    <li><a href="#!">Avaliação</a></li>
+                    <li><a href="#!">Sobre</a></li>
+                    <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><i class="large material-icons">perm_identity</i><i class="material-icons right">arrow_drop_down</i></a></li>
                 </ul>
             </div>
         </nav>
-        <div class="col s12">
-            <ul class="tabs blue-text">
-                <li class="tab col s3 blue-text text-darken-2"><a href="#test1">Test 1</a></li>
-                <li class="tab col s3 blue-text text-darken-2"><a class="active" href="#test2">Test 2</a></li>
-
-            </ul>
-        </div>
-        <div id="test1" class="col s12">
-
-
-        </div>
-        <div id="test2" class="col s12">Test 2</div>
 
 
 
