@@ -13,7 +13,7 @@
         <title>JSP Page</title>
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
-
+        <link href="public/css/custom.css" rel="stylesheet" type="text/css"/>
         <!-- Compiled and minified JavaScript -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
 
@@ -64,21 +64,62 @@
 
         <div id="modal2" class="modal modal-fixed-footer">
             <div class="modal-content">
-                
-  <div class="row">
-    <div class="col s12">
-      <ul class="tabs">
-        <li class="tab col s3"><a href="#test1">Test 1</a></li>
-        <li class="tab col s3"><a class="active" href="#test2">Test 2</a></li>
-        <li class="tab col s3 disabled"><a href="#test3">Disabled Tab</a></li>
-        <li class="tab col s3"><a href="#test4">Test 4</a></li>
-      </ul>
-    </div>
-    <div id="test1" class="col s12">Test 1</div>
-    <div id="test2" class="col s12">Test 2</div>
-    <div id="test3" class="col s12">Test 3</div>
-    <div id="test4" class="col s12">Test 4</div>
-  </div>
+
+                <div class="row">
+                    <div class="col s12">
+                        <ul class="tabs">
+                            <li class="tab col s3"><a href="#test1">Profile</a></li>
+                            <li class="tab col s3"><a class="active" href="#test2">Test 2</a></li>
+                            <li class="tab col s3 disabled"><a href="#test3">Disabled Tab</a></li>
+                            <li class="tab col s3"><a href="#test4">Test 4</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="row">
+                        
+                        <div class="row">
+                            <div class="col s6">
+                                <p>Bem vindo ${usuario.username} . Deseja Editar suas informações?  
+                                    <a id="btn-editar" onclick="toggleReadOnly()" class="waves-effect waves-light btn"><i class="material-icons left">mode_edit</i>Editar</a>
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div id="test1" class="col s6">
+                            <label for="Nome">Nome : </label>
+                        <input type="text" class="input-test" name="nome" id="nome" readonly="readonly">
+                        </div>
+                         <div id="test1" class="col s6">
+                            <label for="Email">Email : </label>
+                        <input type="email" class="input-test" name="email" id="email" readonly="readonly">
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col s6">
+                                 <label for="Celular">Celular : </label>
+                                  <input type="text" class="input-test" name="celular" id="celular" readonly="readonly">
+                            </div>
+                             <div class="col s6">
+                                 <label for="Data">Data de Nascimento : </label>
+                                 <input type="text" class="input-test" name="datanasc" id="datanasc" readonly="readonly">
+                            </div>
+                            
+                        </div>
+                        
+                            <div class="row">
+                            <div class="col s6">
+                                 <label for="Usuario">Usuario : </label>
+                                  <input type="text" class="input-test" name="username" readonly="readonly">
+                            </div>
+                             <div class="col s6">
+                                 <label for="Data">Senha : </label>
+                                 <input type="password" value="teste" id="senha" class="input-test" name="password" readonly="readonly">
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+                </div>
             </div>
             <div class="modal-footer">
                 <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
