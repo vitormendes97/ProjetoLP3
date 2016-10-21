@@ -1,8 +1,8 @@
-Thu Sep 29 14:00:25 BRT 2016 : Apache Derby Servidor de Rede - 10.10.2.0 - (1582446) iniciado e pronto para aceitar conexões na porta 1527 em {3}
+Thu Oct 20 22:17:04 BRST 2016 : Apache Derby Servidor de Rede - 10.10.2.0 - (1582446) iniciado e pronto para aceitar conexões na porta 1527 em {3}
 ----------------------------------------------------------------
-Thu Sep 29 14:00:26 BRT 2016:
- Inicializando o Derby versão The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): instância a816c00e-0157-76e3-d679-ffff80e45855
-no diretório de banco de dados C:\Users\Rosangela\Documents\NetBeansProjects\SeriesProjectV2\DB\seriesproject 
+Thu Oct 20 22:17:04 BRST 2016:
+ Inicializando o Derby versão The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): instância a816c00e-0157-e499-22d2-ffffe4954e18
+no diretório de banco de dados C:\Users\Rosangela\Documents\GitHub\ProjetoLP3\DB\seriesproject 
 
 java.vendor=Oracle Corporation
 java.runtime.version=1.8.0_65-b17
@@ -10,22 +10,5 @@ user.dir=F:\glassfish4\javadb
 os.name=Windows 7
 os.arch=amd64
 os.version=6.1
-derby.system.home=C:\Users\Rosangela\Documents\NetBeansProjects\SeriesProjectV2\DB
-Carregador de classe do banco de dados iniciado - derby.database.classpath=''
-----------------------------------------------------------------
-Thu Sep 29 14:00:58 BRT 2016:
-Encerrando a instância a816c00e-0157-76e3-d679-ffff80e45855
-Thu Sep 29 14:00:58 BRT 2016 Thread[DRDAConnThread_2,5,main] (DATABASE = seriesproject), (DRDAID = {2}), Banco de dados 'seriesproject' fechado.
-----------------------------------------------------------------
-Thu Sep 29 14:01:18 BRT 2016:
- Inicializando o Derby versão The Apache Software Foundation - Apache Derby - 10.10.2.0 - (1582446): instância 560740aa-0157-76e3-d679-ffff80e45855
-no diretório de banco de dados C:\Users\Rosangela\Documents\NetBeansProjects\SeriesProjectV2\DB\seriesproject 
-
-java.vendor=Oracle Corporation
-java.runtime.version=1.8.0_65-b17
-user.dir=F:\glassfish4\javadb
-os.name=Windows 7
-os.arch=amd64
-os.version=6.1
-derby.system.home=C:\Users\Rosangela\Documents\NetBeansProjects\SeriesProjectV2\DB
+derby.system.home=C:\Users\Rosangela\Documents\GitHub\ProjetoLP3\DB
 Carregador de classe do banco de dados iniciado - derby.database.classpath=''

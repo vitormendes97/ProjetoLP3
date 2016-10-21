@@ -21,8 +21,7 @@
         <!-- <link href="public/css/materialize.css" rel="stylesheet" type="text/css" media="screen,projection"/> -->
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <script src="public/js/functions.js" type="text/javascript"></script>
-        <script src="public/js/FunctionsController.js" type="text/javascript"></script>
+        <script src="public/js/custom.js" type="text/javascript"></script>
     </head>
 
     <body>
@@ -65,8 +64,21 @@
 
         <div id="modal2" class="modal modal-fixed-footer">
             <div class="modal-content">
-                <h4>Modal Header</h4>
-                <p>A bunch of text</p>
+                
+  <div class="row">
+    <div class="col s12">
+      <ul class="tabs">
+        <li class="tab col s3"><a href="#test1">Test 1</a></li>
+        <li class="tab col s3"><a class="active" href="#test2">Test 2</a></li>
+        <li class="tab col s3 disabled"><a href="#test3">Disabled Tab</a></li>
+        <li class="tab col s3"><a href="#test4">Test 4</a></li>
+      </ul>
+    </div>
+    <div id="test1" class="col s12">Test 1</div>
+    <div id="test2" class="col s12">Test 2</div>
+    <div id="test3" class="col s12">Test 3</div>
+    <div id="test4" class="col s12">Test 4</div>
+  </div>
             </div>
             <div class="modal-footer">
                 <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
