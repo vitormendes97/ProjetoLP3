@@ -48,12 +48,13 @@ public void destruct()
 
     @Override
     public List<Usuario> readAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Query query = em.createNamedQuery("Usuario.findAll");
+        return (List<Usuario>) query.getResultList();
     }
 
     @Override
     public Usuario readById(long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return em.find(Usuario.class, id);
     }
     
     public Usuario readByUsername(String username){
