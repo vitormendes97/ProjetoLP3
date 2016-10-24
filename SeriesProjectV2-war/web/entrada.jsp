@@ -27,7 +27,7 @@
 
     <body>
         <!--Import jQuery before materialize.js-->
-        <c:if test="${u == null}">
+        <c:if test="${usuario == null}">
             <c:redirect url="login.jsp"></c:redirect>
          </c:if>
 
@@ -133,30 +133,36 @@
                     <div class="row">
                         
                         <div class="row">
-                            <div class="col s6">
+                            <div class="col s12">
                                 <p>Bem vindo ${usuario.username} . Deseja Editar suas informações?  
                                     <a id="btn-editar" onclick="toggleReadOnly()" class="waves-effect waves-light btn"><i class="material-icons left">mode_edit</i>Editar</a>
                                 </p>
                             </div>
                         </div>
-                        
+                                    <form action="FrontController" method="POST">  
+                          <input type="hidden" value="Usuario.Atualizar">
                         <div id="test1" class="col s6">
                             <label for="Nome">Nome : </label>
-                        <input type="text" class="input-test" name="nome" id="nome" readonly="readonly">
+                        <input type="text" class="input-test" name="nome" id="nome" readonly="readonly" value="${userinfo.nome}">
                         </div>
                          <div id="test1" class="col s6">
                             <label for="Email">Email : </label>
-                        <input type="email" class="input-test" name="email" id="email" readonly="readonly">
+                        <input type="email" class="input-test" name="email" id="email" readonly="readonly" value="${userinfo.email}">
                         </div>
                         
                         <div class="row">
                             <div class="col s6">
                                  <label for="Celular">Celular : </label>
-                                  <input type="text" class="input-test" name="celular" id="celular" readonly="readonly">
+                                  <input type="text" class="input-test" name="cel" id="celular" readonly="readonly" value="${userinfo.celular}">
                             </div>
                              <div class="col s6">
                                  <label for="Data">Data de Nascimento : </label>
-                                 <input type="text" class="input-test" name="datanasc" id="datanasc" readonly="readonly">
+                                 <input type="text" class="input-test" name="birth" id="datanasc" readonly="readonly" value="${userinfo.dataNasc}">
+                            </div>
+                            
+                              <div class="col s6">
+                                 <label for="Genero">Genero : </label>
+                                 <input type="text" class="input-test" name="gender" id="genero" readonly="readonly" value="${userinfo.genero}">
                             </div>
                             
                         </div>
@@ -164,14 +170,19 @@
                             <div class="row">
                             <div class="col s6">
                                  <label for="Usuario">Usuario : </label>
-                                  <input type="text" class="input-test" name="username" readonly="readonly">
+                                  <input type="text" class="input-test" name="username" readonly="readonly" value="${usuario.username}">
                             </div>
                              <div class="col s6">
                                  <label for="Data">Senha : </label>
-                                 <input type="password" value="teste" id="senha" class="input-test" name="password" readonly="readonly">
+                                 <input type="password" value="${usuario.password}" id="senha" class="input-test" name="password" readonly="readonly">
+                            </div>
+                            
+                            <div class="col s12">
+                                <button type="submit" class="waves-effect waves-light btn-flat">Salvar Alterações</button>
                             </div>
                             
                         </div>
+                            </form>
                     </div>
                     
                 </div>

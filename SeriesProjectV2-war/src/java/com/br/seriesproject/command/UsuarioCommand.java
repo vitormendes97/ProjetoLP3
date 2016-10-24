@@ -121,6 +121,7 @@ public class UsuarioCommand implements Command {
                 }
                 else if(u.getUsername().equals(usuario) && u.getPassword().equals(senha)){
                     this.request.getSession().setAttribute("usuario", u);
+                    this.request.getSession().setAttribute("userinfo", u.getUserinfo());
                     this.responsePage = "entrada.jsp";
                     break;
                 }
