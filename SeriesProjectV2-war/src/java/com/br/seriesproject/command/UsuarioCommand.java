@@ -40,12 +40,11 @@ public class UsuarioCommand implements Command {
         String action = request.getParameter("command").split("\\.")[1];
         java.sql.Date sqldate;
         switch (action) {
-
-            case "Registrar":
+            case "Atualizar":
                 // Para usuário
+                long id = Long.parseLong(request.getParameter("id"));
                 String username = request.getParameter("username");
                 String password = request.getParameter("password");
-                String confirm = request.getParameter("password2");
 
                 // Para userinfo
                 String name = request.getParameter("nome");
@@ -56,6 +55,55 @@ public class UsuarioCommand implements Command {
 
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                 Date birthday = new Date();
+                try {
+                    birthday = sdf.parse(birth);
+                    sqldate = new java.sql.Date(birthday.getTime());
+                } catch (ParseException ex) {
+                    Logger.getLogger(UsuarioCommand.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+                if (usuarioDAO.readByUsername(username) == null) {
+                    this.request.getSession().setAttribute("error", "Usuário não encontrado!");
+                    this.responsePage = "erro.jsp";
+                    break;
+                } else {
+
+                    Userinfo info = new Userinfo();
+                    info.setNome(name);
+                    info.setGenero(gender);
+                    info.setCelular(phone);
+                    info.setEmail(email);
+                    info.setDataNasc(birthday);
+
+                    Usuario u = usuarioDAO.readById(id);
+                    u.setUsername(username);
+                    u.setPassword(password);
+
+                    info.setUsuario(u);
+                    info.setIdUserinfo(u.getIdUser());
+                    u.setUserinfo(info);
+                    usuarioDAO.update(u);
+                    
+                    this.responsePage = "entrada.jsp";
+                    this.request.getSession().setAttribute("usuario", u);
+                    this.request.getSession().setAttribute("userinfo", info);
+                    break;
+                }
+            case "Registrar":
+                // Para usuário
+                username = request.getParameter("username");
+                password = request.getParameter("password");
+                String confirm = request.getParameter("password2");
+
+                // Para userinfo
+                name = request.getParameter("nome");
+                phone = request.getParameter("cel");
+                email = request.getParameter("email");
+                gender = request.getParameter("gender");
+                birth = request.getParameter("birth");
+
+                sdf = new SimpleDateFormat("yyyy-MM-dd");
+                birthday = new Date();
                 try {
                     birthday = sdf.parse(birth);
                     sqldate = new java.sql.Date(birthday.getTime());
@@ -102,35 +150,45 @@ public class UsuarioCommand implements Command {
                 }
                 break;
 
-            case "Logout":
-                this.request.getSession().invalidate();
-                this.responsePage = "index.jsp";
-                
-                break;
-                
-            case "Login":
-                String usuario = request.getParameter("username");
-                String senha = request.getParameter("password");
-                
-                Usuario u = usuarioDAO.readByUsername(usuario);
-                
-                if(u == null){
-                    this.request.getSession().setAttribute("error", "Essa conta não existe");
+            case "Deletar":
+                id = Long.parseLong(request.getParameter("id"));
+                Usuario user = usuarioDAO.readById(id);
+                if (user != null) {
+                    usuarioDAO.delete(user);
+                    break;
+                } else {
+                    this.request.getSession().setAttribute("error", "Usuário não encontrado!");
                     this.responsePage = "erro.jsp";
                     break;
                 }
-                else if(u.getUsername().equals(usuario) && u.getPassword().equals(senha)){
+
+            case "Logout":
+                this.request.getSession().invalidate();
+                this.responsePage = "index.jsp";
+
+                break;
+
+            case "Login":
+                String usuario = request.getParameter("username");
+                String senha = request.getParameter("password");
+
+                Usuario u = usuarioDAO.readByUsername(usuario);
+
+                if (u == null) {
+                    this.request.getSession().setAttribute("error", "Essa conta não existe");
+                    this.responsePage = "erro.jsp";
+                    break;
+                } else if (u.getUsername().equals(usuario) && u.getPassword().equals(senha)) {
                     this.request.getSession().setAttribute("usuario", u);
                     this.request.getSession().setAttribute("userinfo", u.getUserinfo());
                     this.responsePage = "entrada.jsp";
                     break;
-                }
-                else if(!u.getUsername().equals(usuario) || !u.getPassword().equals(senha)){
+                } else if (!u.getUsername().equals(usuario) || !u.getPassword().equals(senha)) {
                     this.request.getSession().setAttribute("error", "Usuário e/ou senha incorreto");
                     this.responsePage = "erro.jsp";
                     break;
                 }
-                
+
                 break;
         }
 

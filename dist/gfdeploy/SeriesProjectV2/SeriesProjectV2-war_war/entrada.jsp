@@ -140,7 +140,8 @@
                             </div>
                         </div>
                                     <form action="FrontController" method="POST">  
-                          <input type="hidden" value="Usuario.Atualizar">
+                          <input type="hidden" name="command" value="Usuario.Atualizar">
+                          <input type="hidden" name="id" value="${usuario.idUser}">
                         <div id="test1" class="col s6">
                             <label for="Nome">Nome : </label>
                         <input type="text" class="input-test" name="nome" id="nome" readonly="readonly" value="${userinfo.nome}">
@@ -188,7 +189,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
+                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Fechar</a>
             </div>
         </div>
 

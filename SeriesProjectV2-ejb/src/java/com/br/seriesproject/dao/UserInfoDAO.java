@@ -12,6 +12,7 @@ import javax.ejb.Stateful;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceContextType;
+import javax.persistence.Query;
 
 @LocalBean
 @Stateful
@@ -34,17 +35,19 @@ public class UserInfoDAO implements GenericDAO<Userinfo> {
 
     @Override
     public void delete(Userinfo e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        em.merge(e);
+        em.remove(e);
     }
 
     @Override
     public List<Userinfo> readAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Query query = em.createNamedQuery("Userinfo.findAll");
+        return (List<Userinfo>) query.getResultList();
     }
 
     @Override
     public Userinfo readById(long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return em.find(Userinfo.class, id);
     }
     
 }
