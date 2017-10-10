@@ -1,7 +1,7 @@
-<%-- 
+<%--
     Document   : login.jsp
     Created on : 28/09/2016, 19:23:34
-    Author     : leo_f
+    Author     : leonardo Toniolo e Vitor Mendes 
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -24,8 +24,8 @@
     <body>
 
 
-       
-           
+
+
         <div class="row">
             <div class="card-panel grey lighten-2">
                 <div class="row">
@@ -35,14 +35,14 @@
                         <div class="row ">
                             <div class="input-field col s12">
                                 <input id="first_name" type="text" class="validate" name="username">
-                                <label for="first_name">Usuario</label>
+                                <label for="first_name">Seu Usuario</label>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="input-field col s12" name="password">
                                 <input id="password" type="password" class="validate" name="password">
-                                <label for="password">Senha</label>
+                                <label for="password">Sua Senha</label>
                             </div>
                         </div>
                         <div class="row">
